@@ -51,14 +51,9 @@ public class EmpWage {
 	public static void main(String args[]) {
 
 		System.out.println("Welcome to Employee Wage calculation");
-<<<<<<< HEAD
-		EmpWage emp = new EmpWage();
-		emp.CalculateEmployeeWage();
-=======
 		//Muiltiple comapnies
 		CalculateEmpWageforCompany(" BIGBAZAR ",5, 25, 25);
 		CalculateEmpWageforCompany(" DEMART ",5, 25,20);
->>>>>>> EmployeewageBuilderUC8
 
 	}
 
