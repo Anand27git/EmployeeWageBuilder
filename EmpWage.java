@@ -2,19 +2,25 @@ public class EmpWage {
 	// declaring static variables
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
+	public static final int WORKING_DAY_HOUR = 20;
+	public static final int NUM_OF_WORKING_DAY_HOUR = 5;
+	public static final int MAX_HRS_IN_MONTH = 100;
 
-	public static int CalculateEmpWageforCompany(String company, int wagePerHr, int maxWorkingHr, int maxWorkingDays) {
+	public void CalculateEmployeeWage() {
+
 		// declaring the variables
+		int empWage = 0;
 		int totalWage = 0;
 		int totalWorkingDays = 0;
-		int totalHrs = 0;
+		int totalEmpHrs = 0;
+
 		// checking with while loop
-		while (totalWorkingDays < maxWorkingDays && totalHrs < maxWorkingHr) {
+		while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAY_HOUR) {
 
 			int empHrs = 0;
 			totalWorkingDays++;
 
-			int empCheck = (int) (Math.random() * 3);
+			int empCheck = (int) ((Math.random() * 10) % 3);
 			// using switch statement to check the employee working time
 			switch (empCheck) {
 
@@ -31,22 +37,22 @@ public class EmpWage {
 				empHrs = 0;
 				System.out.println("Employee is Absent");
 			}
-			// calculating the daily wage of an employee
-			totalHrs += empHrs;
-			int dailyWage = empHrs * wagePerHr;
-			System.out.println("Daily Wage =" + dailyWage);
+
+			totalEmpHrs += empHrs;
+			empWage = empHrs * WORKING_DAY_HOUR;
+			System.out.println("Employee Wage =" + empWage);
 		}
-		// calculating total Employee waage for company
-		totalWage = totalHrs * wagePerHr;
-		System.out.println("Total Employee Wage for company "+ company +" is " + totalWage);
-		return totalWage;
+		// calculating total Employee wage
+		totalWage += empWage;
+		System.out.println("Total Employee Wage is " + totalWage);
+
 	}
 
 	public static void main(String args[]) {
 
 		System.out.println("Welcome to Employee Wage calculation");
-		CalculateEmpWageforCompany(" BIGBAZAR ",5, 25, 25);
-		CalculateEmpWageforCompany(" DEMART ",5, 25,20);
+		EmpWage emp = new EmpWage();
+		emp.CalculateEmployeeWage();
 
 	}
 
