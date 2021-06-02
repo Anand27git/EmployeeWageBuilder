@@ -1,4 +1,4 @@
-package com.EmpWageUsecase10;
+package com.EmpWageUsecase12;
 
 public interface InterfaceEmpWage {
 	public void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth); 

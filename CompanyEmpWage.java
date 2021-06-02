@@ -1,4 +1,4 @@
-package com.EmpWageUsecase10;
+package com.EmpWageUsecase12;
 
 public class CompanyEmpWage {
 
