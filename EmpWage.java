@@ -1,33 +1,36 @@
-package com.EmpWage2;
-
-public class EmpWage {
+package com.EmpWageUsecase10;
+//implementing the interface
+public class EmpWage implements InterfaceEmpWage {
 	// declaring static variables
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 
 	private int numOfCompany = 0;
 	private CompanyEmpWage[] companyEmpWageArray;
-	
+
 	public EmpWage() {
 		companyEmpWageArray = new CompanyEmpWage[5];
 	}
-	private void  addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
-	
-	companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company,empRatePerHour,numOfWorkingDays,maxHoursPerMonth);
- 	numOfCompany++;
+
+	public void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
+
+		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays,
+				maxHoursPerMonth);
+		numOfCompany++;
 	}
 
-	private void computeEmpWage() {
-		for(int i=0; i < numOfCompany; i++) {
+	public void computeEmpWage() {
+		for (int i = 0; i < numOfCompany; i++) {
 			companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
-		System.out.println(companyEmpWageArray[i]);
+			System.out.println(companyEmpWageArray[i]);
 		}
 	}
-	private int  computeEmpWage(CompanyEmpWage companyEmpWage) {
+
+	public int computeEmpWage(CompanyEmpWage companyEmpWage) {
 		// variables
 		int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
 		// computation
-		while (totalEmpHrs <=companyEmpWage.maxHoursPerMonth && totalWorkingDays < companyEmpWage.numOfWorkingDays) {
+		while (totalEmpHrs <= companyEmpWage.maxHoursPerMonth && totalWorkingDays < companyEmpWage.numOfWorkingDays) {
 
 			totalWorkingDays++;
 
@@ -63,6 +66,12 @@ public class EmpWage {
 		empwage.addCompanyEmpWage("Dmart", 20, 2, 10);
 		empwage.addCompanyEmpWage(" BIGBAZAR ", 5, 25, 25);
 		empwage.computeEmpWage();
+	}
+
+	@Override
+	public void computeWage() {
+		// TODO Auto-generated method stub
+
 	}
 
 }
