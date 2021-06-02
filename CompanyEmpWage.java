@@ -1,4 +1,6 @@
-package com.EmpWageUsecase12;
+package com.EmpWageUsecase13;
+
+import java.util.ArrayList;
 
 public class CompanyEmpWage {
 
@@ -7,6 +9,8 @@ public class CompanyEmpWage {
 	public final int numOfWorkingDays;
 	public final int maxHoursPerMonth;
 	public int totalWage;
+
+	public ArrayList<Integer> empDailyWage = new ArrayList<Integer>();
 
 	public CompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
 		this.company = company;

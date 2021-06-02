@@ -1,13 +1,13 @@
-package com.EmpWageUsecase12;
+package com.EmpWageUsecase13;
 
 import java.util.ArrayList;
 
-	//implementing the interface
+//implementing the interface
 public class EmpWage implements InterfaceEmpWage {
 	// declaring static variables
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
-     // using Array List
+	// using Array List
 	private ArrayList<CompanyEmpWage> companyEmpArrayList;
 
 	public EmpWage() {
@@ -24,7 +24,16 @@ public class EmpWage implements InterfaceEmpWage {
 		for (int i = 0; i < companyEmpArrayList.size(); i++) {
 			CompanyEmpWage companyEmpwage = companyEmpArrayList.get(i);
 			companyEmpwage.setTotalEmpWage(this.computeEmpWage(companyEmpwage));
+			System.out.println("Company Name: " + companyEmpwage.company);
+			DisplayDailyWageforCompany(companyEmpwage);
 			System.out.println(companyEmpwage.company + "Total Wage is " + companyEmpwage.totalWage);
+		}
+	}
+
+	public void DisplayDailyWageforCompany(CompanyEmpWage companyEmpwage) {
+		for (int i = 0; i < companyEmpwage.empDailyWage.size(); i++) {
+			int day = i + 1;
+			System.out.println("Daily Wage For Day" + day + ":" + companyEmpwage.empDailyWage.get(i));
 		}
 	}
 
